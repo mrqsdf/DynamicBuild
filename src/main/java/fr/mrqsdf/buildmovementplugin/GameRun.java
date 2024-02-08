@@ -9,6 +9,7 @@ public class GameRun extends BukkitRunnable {
     @Override
     public void run() {
         for (BuildData buildData : BuildData.buildDataMap.values()) {
+            if (!buildData.activated) continue;
             if (buildData.actualFrameTick < buildData.frameTick){
                 buildData.actualFrameTick += BuildMovementPlugin.tickInterval;
             } else {

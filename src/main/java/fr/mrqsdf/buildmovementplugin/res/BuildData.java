@@ -13,6 +13,7 @@ public class BuildData implements Serializable {
     public transient int actualFrameTick = 0;
     public transient int actualFrame = 0;
     public boolean airReplace = false;
+    public boolean activated = false;
 
     public static Map<String ,BuildData> buildDataMap = new HashMap<>();
 

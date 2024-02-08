@@ -10,6 +10,15 @@ commands:
     addbuild:
         description: Add a build
         permission: buildmovementplugin.addbuild
+    activatebuild:
+        description: Activate a build
+        permission: buildmovementplugin.activatebuild
+    delbuild:
+        description: Delete a build
+        permission: buildmovementplugin.delbuild
+    settickinterval:
+        description: Set the tick interval
+        permission: buildmovementplugin.settickinterval
 
 permissions:
     buildmovementplugin.buildmode:
@@ -17,4 +26,13 @@ permissions:
         default: op
     buildmovementplugin.addbuild:
         description: Allow to use addbuild command
+        default: op
+    buildmovementplugin.activatebuild:
+        description: Allow to use activatebuild command
+        default: op
+    buildmovementplugin.delbuild:
+        description: Allow to use delbuild command
+        default: op
+    buildmovementplugin.settickinterval:
+        description: Allow to use settickinterval command
         default: op
