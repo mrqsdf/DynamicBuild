@@ -1,0 +1,20 @@
+name: BuildMovementPlugin
+main: fr.mrqsdf.buildmovementplugin.BuildMovementPlugin
+version: 1.0
+author: mrqsdf
+api-version: 1.20
+commands:
+    buildmode:
+        description: Activate build
+        permission: buildmovementplugin.buildmode
+    addbuild:
+        description: Add a build
+        permission: buildmovementplugin.addbuild
+
+permissions:
+    buildmovementplugin.buildmode:
+        description: Allow to use buildmovement command
+        default: op
+    buildmovementplugin.addbuild:
+        description: Allow to use addbuild command
+        default: op
