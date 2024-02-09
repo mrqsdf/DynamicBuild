@@ -1,8 +1,7 @@
 name: BuildMovementPlugin
 main: fr.mrqsdf.buildmovementplugin.BuildMovementPlugin
-version: 1.0
+version: '${version}'
 author: mrqsdf
-api-version: 1.20
 commands:
     buildmode:
         description: Activate build

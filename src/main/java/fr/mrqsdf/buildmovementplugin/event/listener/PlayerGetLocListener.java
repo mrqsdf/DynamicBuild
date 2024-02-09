@@ -1,5 +1,6 @@
 package fr.mrqsdf.buildmovementplugin.event.listener;
 
+import fr.mrqsdf.buildmovementplugin.res.MaterialRessource;
 import fr.mrqsdf.buildmovementplugin.res.PlayerData;
 import fr.mrqsdf.buildmovementplugin.res.PlayerLoc;
 import org.bukkit.Location;
@@ -16,8 +17,10 @@ public class PlayerGetLocListener implements Listener {
     @EventHandler
     public void onPlayerGetLocListener(BlockBreakEvent event){
         Player player = event.getPlayer();
+        System.out.println("test1");
         if (!PlayerData.playerIsBuilding.get(player.getUniqueId())) return;
-        if (player.getInventory().getItemInMainHand().getType() != Material.WOODEN_HOE) return;
+        if (player.getInventory().getItemInMainHand().getType() != MaterialRessource.hoe) return;
+        System.out.println("test2");
         Location loc = event.getBlock().getLocation();
         PlayerLoc playerLoc = PlayerData.playerLocs.getOrDefault(player.getUniqueId(), new PlayerLoc());
         playerLoc.locLeftClick = loc;
@@ -45,9 +48,11 @@ public class PlayerGetLocListener implements Listener {
     @EventHandler
     public void onPlayerGetLocListener(PlayerInteractEvent event){
         Player player = event.getPlayer();
+        System.out.println("test3");
         if (!PlayerData.playerIsBuilding.get(player.getUniqueId())) return;
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
-        if (player.getInventory().getItemInMainHand().getType() != Material.WOODEN_HOE) return;
+        if (player.getInventory().getItemInMainHand().getType() != MaterialRessource.hoe) return;
+        System.out.println("test4");
         Location loc = event.getClickedBlock().getLocation();
         PlayerLoc playerLoc = PlayerData.playerLocs.getOrDefault(player.getUniqueId(), new PlayerLoc());
         playerLoc.locRightClick = loc;
@@ -75,9 +80,15 @@ public class PlayerGetLocListener implements Listener {
     @EventHandler
     public void getCenterLoc(PlayerInteractEvent event){
         Player player = event.getPlayer();
+        System.out.println("test5");
         if (!PlayerData.playerIsBuilding.get(player.getUniqueId())) return;
+        System.out.println("test5.1");
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
-        if (player.getInventory().getItemInMainHand().getType() != Material.WOODEN_SHOVEL) return;
+        System.out.println("test5.2");
+        System.out.println(player.getInventory().getItemInMainHand().getType());
+        System.out.println(MaterialRessource.shovel);
+        if (player.getInventory().getItemInMainHand().getType() != MaterialRessource.shovel) return;
+        System.out.println("test6");
         Location loc = event.getClickedBlock().getLocation();
         PlayerLoc playerLoc = PlayerData.playerLocs.getOrDefault(player.getUniqueId(), new PlayerLoc());
         playerLoc.origineLoc = loc;
