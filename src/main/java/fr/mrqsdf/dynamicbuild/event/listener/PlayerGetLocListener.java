@@ -1,10 +1,9 @@
-package fr.mrqsdf.buildmovementplugin.event.listener;
+package fr.mrqsdf.dynamicbuild.event.listener;
 
-import fr.mrqsdf.buildmovementplugin.res.MaterialRessource;
-import fr.mrqsdf.buildmovementplugin.res.PlayerData;
-import fr.mrqsdf.buildmovementplugin.res.PlayerLoc;
+import fr.mrqsdf.dynamicbuild.res.MaterialRessource;
+import fr.mrqsdf.dynamicbuild.res.PlayerData;
+import fr.mrqsdf.dynamicbuild.res.PlayerLoc;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

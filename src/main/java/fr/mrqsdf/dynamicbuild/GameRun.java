@@ -1,7 +1,7 @@
-package fr.mrqsdf.buildmovementplugin;
+package fr.mrqsdf.dynamicbuild;
 
-import fr.mrqsdf.buildmovementplugin.res.Build;
-import fr.mrqsdf.buildmovementplugin.res.BuildData;
+import fr.mrqsdf.dynamicbuild.res.Build;
+import fr.mrqsdf.dynamicbuild.res.BuildData;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class GameRun extends BukkitRunnable {
@@ -11,7 +11,7 @@ public class GameRun extends BukkitRunnable {
         for (BuildData buildData : BuildData.buildDataMap.values()) {
             if (!buildData.activated) continue;
             if (buildData.actualFrameTick < buildData.frameTick){
-                buildData.actualFrameTick += BuildMovementPlugin.tickInterval;
+                buildData.actualFrameTick += DynamicBuild.tickInterval;
             } else {
                 buildData.actualFrameTick = 0;
                 buildData.actualFrame++;

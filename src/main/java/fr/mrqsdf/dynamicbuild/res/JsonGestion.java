@@ -1,11 +1,11 @@
-package fr.mrqsdf.buildmovementplugin.res;
+package fr.mrqsdf.dynamicbuild.res;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import fr.mrqsdf.buildmovementplugin.BuildMovementPlugin;
+import fr.mrqsdf.dynamicbuild.DynamicBuild;
 
 import java.io.File;
 import java.io.FileReader;
@@ -21,7 +21,7 @@ public class JsonGestion {
                 .setPrettyPrinting()
                 .create();
         try {
-            FileWriter writer = new FileWriter(BuildMovementPlugin.instance.getDataFolder() + "/buildData.json");
+            FileWriter writer = new FileWriter(DynamicBuild.instance.getDataFolder() + "/buildData.json");
             writer.write(gson.toJson(BuildData.buildDataMap));
             writer.close();
         } catch (IOException e){
@@ -31,23 +31,23 @@ public class JsonGestion {
 
     public static void loadBuildData() {
         Gson gson = new Gson();
-        File file = new File(BuildMovementPlugin.instance.getDataFolder() + "/");
+        File file = new File(DynamicBuild.instance.getDataFolder() + "/");
         if (!file.exists()){
             file.mkdirs();
         }
-        File f = new File(BuildMovementPlugin.instance.getDataFolder() + "/buildData.json");
+        File f = new File(DynamicBuild.instance.getDataFolder() + "/buildData.json");
         if (!f.exists()){
             System.out.println("File not Found");
         }
         try {
-            FileReader fileReader = new FileReader(BuildMovementPlugin.instance.getDataFolder() + "/buildData.json");
+            FileReader fileReader = new FileReader(DynamicBuild.instance.getDataFolder() + "/buildData.json");
             Object o = JsonParser.parseReader(fileReader);
             JsonObject jsonObject = (JsonObject) o;
             String json = jsonObject.toString();
             Type empMapType = new TypeToken<Map<String , BuildData>>() {}.getType();
             BuildData.buildDataMap = gson.fromJson(json, empMapType);
         } catch (Exception e){
-            BuildMovementPlugin.instance.getLogger().warning("No data found, creating a new file");
+            DynamicBuild.instance.getLogger().warning("No data found, creating a new file");
         }
 
 

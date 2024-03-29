@@ -1,9 +1,9 @@
-package fr.mrqsdf.buildmovementplugin.command;
+package fr.mrqsdf.dynamicbuild.command;
 
-import fr.mrqsdf.buildmovementplugin.res.Build;
-import fr.mrqsdf.buildmovementplugin.res.BuildData;
-import fr.mrqsdf.buildmovementplugin.res.PlayerData;
-import fr.mrqsdf.buildmovementplugin.res.PlayerLoc;
+import fr.mrqsdf.dynamicbuild.res.Build;
+import fr.mrqsdf.dynamicbuild.res.BuildData;
+import fr.mrqsdf.dynamicbuild.res.PlayerData;
+import fr.mrqsdf.dynamicbuild.res.PlayerLoc;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

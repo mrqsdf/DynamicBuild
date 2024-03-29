@@ -1,18 +1,18 @@
-package fr.mrqsdf.buildmovementplugin;
+package fr.mrqsdf.dynamicbuild;
 
-import fr.mrqsdf.buildmovementplugin.command.*;
-import fr.mrqsdf.buildmovementplugin.event.listener.PlayerGetLocListener;
-import fr.mrqsdf.buildmovementplugin.event.listener.PlayerJoinListener;
-import fr.mrqsdf.buildmovementplugin.res.JsonGestion;
-import fr.mrqsdf.buildmovementplugin.res.MaterialRessource;
+import fr.mrqsdf.dynamicbuild.command.*;
+import fr.mrqsdf.dynamicbuild.event.listener.PlayerGetLocListener;
+import fr.mrqsdf.dynamicbuild.event.listener.PlayerJoinListener;
+import fr.mrqsdf.dynamicbuild.res.JsonGestion;
+import fr.mrqsdf.dynamicbuild.res.MaterialRessource;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class BuildMovementPlugin extends JavaPlugin {
+public class DynamicBuild extends JavaPlugin {
 
-    public static BuildMovementPlugin instance;
+    public static DynamicBuild instance;
     public static FileConfiguration config;
     public static boolean isDefaultMode;
     public static int tickInterval;

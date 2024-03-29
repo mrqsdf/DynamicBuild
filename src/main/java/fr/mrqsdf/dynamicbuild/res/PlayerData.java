@@ -1,4 +1,4 @@
-package fr.mrqsdf.buildmovementplugin.res;
+package fr.mrqsdf.dynamicbuild.res;
 
 import java.util.HashMap;
 import java.util.Map;

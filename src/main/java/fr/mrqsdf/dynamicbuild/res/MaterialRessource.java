@@ -1,4 +1,4 @@
-package fr.mrqsdf.buildmovementplugin.res;
+package fr.mrqsdf.dynamicbuild.res;
 
 import org.bukkit.Material;
 

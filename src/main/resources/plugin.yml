@@ -1,6 +1,6 @@
 name: BuildMovementPlugin
-main: fr.mrqsdf.buildmovementplugin.BuildMovementPlugin
-version: '${version}'
+main: fr.mrqsdf.dynamicbuild.DynamicBuildPlugin
+version: 1.0
 author: mrqsdf
 commands:
     buildmode:
