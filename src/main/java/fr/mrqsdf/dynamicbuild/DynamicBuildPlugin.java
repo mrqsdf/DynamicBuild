@@ -12,9 +12,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
-public class DynamicBuild extends JavaPlugin {
+public class DynamicBuildPlugin extends JavaPlugin {
 
-    public static DynamicBuild instance;
+    public static DynamicBuildPlugin instance;
     public static FileConfiguration config;
     public static boolean isDefaultMode;
     public static int tickInterval;
@@ -57,6 +57,7 @@ public class DynamicBuild extends JavaPlugin {
         Objects.requireNonNull(Bukkit.getPluginCommand("activatebuild")).setExecutor(new ActivateBuildPlaceCommand());
         Objects.requireNonNull(Bukkit.getPluginCommand("delbuild")).setExecutor(new DelBuildCommand());
         Objects.requireNonNull(Bukkit.getPluginCommand("settickinterval")).setExecutor(new ChangeTickCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("listbuild")).setExecutor(new ListBuildCommand());
         new GameRun().runTaskTimer(this, 0, tickInterval);
         getLogger().info("BuildMovementPlugin has been enabled");
     }

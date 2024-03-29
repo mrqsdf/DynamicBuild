@@ -21,8 +21,21 @@ public class ActivateModeCommand implements CommandExecutor {
                         sender.sendMessage("Build mode activated");
                     }
                 }
+                if (args.length == 1){
+                    Player target = player.getServer().getPlayer(args[0]);
+                    if (target == null){
+                        sender.sendMessage("Player not found");
+                        return false;
+                    }
+                    if (PlayerData.playerIsBuilding.get(target.getUniqueId())){
+                        PlayerData.playerIsBuilding.put(target.getUniqueId(), false);
+                        sender.sendMessage("Build mode deactivated for " + target.getName());
+                    } else {
+                        PlayerData.playerIsBuilding.put(target.getUniqueId(), true);
+                        sender.sendMessage("Build mode activated for " + target.getName());
+                    }
+                }
             }
-
         }
         return false;
     }

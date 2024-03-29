@@ -1,37 +1,53 @@
-name: BuildMovementPlugin
+name: DynamicBuild
 main: fr.mrqsdf.dynamicbuild.DynamicBuildPlugin
 version: 1.0
 author: mrqsdf
 commands:
     buildmode:
         description: Activate build
-        permission: buildmovementplugin.buildmode
+        permission: dynamicbuild.buildmode
     addbuild:
         description: Add a build
-        permission: buildmovementplugin.addbuild
+        permission: dynamicbuild.addbuild
     activatebuild:
         description: Activate a build
-        permission: buildmovementplugin.activatebuild
+        permission: dynamicbuild.activatebuild
     delbuild:
         description: Delete a build
-        permission: buildmovementplugin.delbuild
+        permission: dynamicbuild.delbuild
     settickinterval:
         description: Set the tick interval
-        permission: buildmovementplugin.settickinterval
+        permission: dynamicbuild.settickinterval
+    listbuild:
+        description: List all builds
+        permission: dynamicbuild.listbuild
 
 permissions:
-    buildmovementplugin.buildmode:
+    dynamicbuild.*:
+        description: Allow to use all commands
+        default: op
+        children:
+            - dynamicbuild.buildmode
+            - dynamicbuild.addbuild
+            - dynamicbuild.activatebuild
+            - dynamicbuild.delbuild
+            - dynamicbuild.settickinterval
+            - dynamicbuild.listbuild
+    dynamicbuild.buildmode:
         description: Allow to use buildmovement command
         default: op
-    buildmovementplugin.addbuild:
+    dynamicbuild.addbuild:
         description: Allow to use addbuild command
         default: op
-    buildmovementplugin.activatebuild:
+    dynamicbuild.activatebuild:
         description: Allow to use activatebuild command
         default: op
-    buildmovementplugin.delbuild:
+    dynamicbuild.delbuild:
         description: Allow to use delbuild command
         default: op
-    buildmovementplugin.settickinterval:
+    dynamicbuild.settickinterval:
         description: Allow to use settickinterval command
+        default: op
+    dynamicbuild.listbuild:
+        description: Allow to use listbuild command
         default: op

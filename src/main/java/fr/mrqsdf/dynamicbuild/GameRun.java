@@ -11,7 +11,7 @@ public class GameRun extends BukkitRunnable {
         for (BuildData buildData : BuildData.buildDataMap.values()) {
             if (!buildData.activated) continue;
             if (buildData.actualFrameTick < buildData.frameTick){
-                buildData.actualFrameTick += DynamicBuild.tickInterval;
+                buildData.actualFrameTick += DynamicBuildPlugin.tickInterval;
             } else {
                 buildData.actualFrameTick = 0;
                 buildData.actualFrame++;

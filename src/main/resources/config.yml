@@ -1,2 +1,3 @@
-defaultMode : true
-tickInterval : 1
+# DynamicBuild configuration
+defaultMode: true # Default build mode
+tickInterval: 1 # Minimal frame tick interval (20 ticks = 1 second)
