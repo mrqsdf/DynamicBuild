@@ -11,6 +11,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.Objects;
+
 public class PlayerGetLocListener implements Listener {
 
     @EventHandler
@@ -33,15 +35,19 @@ public class PlayerGetLocListener implements Listener {
             event.setCancelled(true);
             return;
         }
+        int blockTotal = BlockCalcul(playerLoc, blockX1, blockY1, blockZ1);
+        player.sendMessage("§6Pos1 set to " + loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + "("+ blockTotal +" blocks)");
+        event.setCancelled(true);
+    }
+
+    private int BlockCalcul(PlayerLoc playerLoc, int blockX1, int blockY1, int blockZ1) {
         int blockX2 = playerLoc.locRightClick.getBlockX();
         int blockY2 = playerLoc.locRightClick.getBlockY();
         int blockZ2 = playerLoc.locRightClick.getBlockZ();
         int longueur = Math.abs(blockX1 - blockX2) == 0 ? 1 : Math.abs(blockX1 - blockX2);
         int largeur = Math.abs(blockY1 - blockY2) == 0 ? 1 : Math.abs(blockY1 - blockY2);
         int hauteur = Math.abs(blockZ1 - blockZ2) == 0 ? 1 : Math.abs(blockZ1 - blockZ2);
-        int blockTotal = longueur * largeur * hauteur;
-        player.sendMessage("§6Pos1 set to " + loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + "("+ blockTotal +" blocks)");
-        event.setCancelled(true);
+        return longueur * largeur * hauteur;
     }
 
     @EventHandler
@@ -52,7 +58,7 @@ public class PlayerGetLocListener implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         if (player.getInventory().getItemInMainHand().getType() != MaterialRessource.hoe) return;
         System.out.println("test4");
-        Location loc = event.getClickedBlock().getLocation();
+        Location loc = Objects.requireNonNull(event.getClickedBlock()).getLocation();
         PlayerLoc playerLoc = PlayerData.playerLocs.getOrDefault(player.getUniqueId(), new PlayerLoc());
         playerLoc.locRightClick = loc;
         PlayerData.playerLocs.put(player.getUniqueId(), playerLoc);
@@ -65,13 +71,7 @@ public class PlayerGetLocListener implements Listener {
         int blockX1 = playerLoc.locLeftClick.getBlockX();
         int blockY1 = playerLoc.locLeftClick.getBlockY();
         int blockZ1 = playerLoc.locLeftClick.getBlockZ();
-        int blockX2 = playerLoc.locRightClick.getBlockX();
-        int blockY2 = playerLoc.locRightClick.getBlockY();
-        int blockZ2 = playerLoc.locRightClick.getBlockZ();
-        int longueur = Math.abs(blockX1 - blockX2) == 0 ? 1 : Math.abs(blockX1 - blockX2);
-        int largeur = Math.abs(blockY1 - blockY2) == 0 ? 1 : Math.abs(blockY1 - blockY2);
-        int hauteur = Math.abs(blockZ1 - blockZ2) == 0 ? 1 : Math.abs(blockZ1 - blockZ2);
-        int blockTotal = longueur * largeur * hauteur;
+        int blockTotal = BlockCalcul(playerLoc, blockX1, blockY1, blockZ1);
         player.sendMessage("§6Pos2 set to " + loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ() + "("+ blockTotal +" blocks)");
         event.setCancelled(true);
     }
@@ -88,7 +88,7 @@ public class PlayerGetLocListener implements Listener {
         System.out.println(MaterialRessource.shovel);
         if (player.getInventory().getItemInMainHand().getType() != MaterialRessource.shovel) return;
         System.out.println("test6");
-        Location loc = event.getClickedBlock().getLocation();
+        Location loc = Objects.requireNonNull(event.getClickedBlock()).getLocation();
         PlayerLoc playerLoc = PlayerData.playerLocs.getOrDefault(player.getUniqueId(), new PlayerLoc());
         playerLoc.origineLoc = loc;
         PlayerData.playerLocs.put(player.getUniqueId(), playerLoc);

@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class PlayerData {
 
-    public static Map<UUID, PlayerLoc> playerLocs = new HashMap<>();
-    public static Map<UUID, Boolean> playerIsBuilding = new HashMap<>();
+    public static final Map<UUID, PlayerLoc> playerLocs = new HashMap<>();
+    public static final Map<UUID, Boolean> playerIsBuilding = new HashMap<>();
 
 }

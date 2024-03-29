@@ -2,6 +2,8 @@ package fr.mrqsdf.dynamicbuild.res;
 
 import org.bukkit.Location;
 
+import java.util.Objects;
+
 public class Build {
 
     public int locX1;
@@ -25,7 +27,7 @@ public class Build {
         this.locX3 = loc3.getBlockX();
         this.locY3 = loc3.getBlockY();
         this.locZ3 = loc3.getBlockZ();
-        this.world = loc1.getWorld().getName();
+        this.world = Objects.requireNonNull(loc1.getWorld()).getName();
     }
 
 }

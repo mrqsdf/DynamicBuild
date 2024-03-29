@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class BuildData implements Serializable {
 
-    public List<Build> buildList = new ArrayList<>();
+    public final List<Build> buildList = new ArrayList<>();
     public int frameTick = 0;
     public transient int actualFrameTick = 0;
     public transient int actualFrame = 0;

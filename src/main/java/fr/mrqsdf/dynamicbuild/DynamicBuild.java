@@ -10,6 +10,8 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public class DynamicBuild extends JavaPlugin {
 
     public static DynamicBuild instance;
@@ -50,11 +52,11 @@ public class DynamicBuild extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerGetLocListener(), this);
 
-        Bukkit.getPluginCommand("buildmode").setExecutor(new ActivateModeCommand());
-        Bukkit.getPluginCommand("addbuild").setExecutor(new AddBuildCommand());
-        Bukkit.getPluginCommand("activatebuild").setExecutor(new ActivateBuildPlaceCommand());
-        Bukkit.getPluginCommand("delbuild").setExecutor(new DelBuildCommand());
-        Bukkit.getPluginCommand("settickinterval").setExecutor(new ChangeTickCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("buildmode")).setExecutor(new ActivateModeCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("addbuild")).setExecutor(new AddBuildCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("activatebuild")).setExecutor(new ActivateBuildPlaceCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("delbuild")).setExecutor(new DelBuildCommand());
+        Objects.requireNonNull(Bukkit.getPluginCommand("settickinterval")).setExecutor(new ChangeTickCommand());
         new GameRun().runTaskTimer(this, 0, tickInterval);
         getLogger().info("BuildMovementPlugin has been enabled");
     }
