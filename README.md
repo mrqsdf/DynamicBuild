@@ -8,7 +8,11 @@ DynamicBuild is a plugin for minecraft servers.
 ## Usage
 1. Use `/buildmode` to toggle build mode for yourself
 2. take a wooden shovel and right click for set origine point (north-west down corner)
+
+![origine_set.png](image%2Forigine_set.png)
 3. take a wooden hoe and right click for set firt point and left click for set second point (same worldEdit)
+
+![pos1_pos2.png](image%2Fpos1_pos2.png)
 4. use `/addbuild <name> <frameTick> <airReplace>` to add a build
 5. repeat step 3 and 6 for add more build
 6. use `/addbuild <name>` to add build to existing build
@@ -55,6 +59,8 @@ tickInterval: 1 # Minimal frame tick interval (20 ticks = 1 second)
 ```
 
 
+## Tutorial
+[![Watch the video](image/img.png)](https://youtu.be/JS1mMQuLf1E)
 ## Credits
 - author: [Mr_Qsdf] (https://github.com/mrqsdf)
 - contributors: [Mr_Qsdf]
